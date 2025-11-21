@@ -11,9 +11,7 @@ $users = $stmt->fetchAll();
 
 ?>
 <body>
-    <header>
-        <h1>Learn Login</h1>
-    </header>
+    <?php include_once 'nav.php' ?>
     <main class="container card">
          <table>
         <thead>
