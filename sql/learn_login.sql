@@ -12,7 +12,7 @@ CREATE TABLE users (
   email VARCHAR(100) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
   profile_image VARCHAR(255) DEFAULT NULL,
-  role ENUM('user','admin','moderator') DEFAULT 'user',
+  role ENUM('user','admin','moderator','block') DEFAULT 'user',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )ENGINE=InnoDB;
