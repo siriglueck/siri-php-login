@@ -1,4 +1,4 @@
--- Sawasdee_Germany DB – Schema & Seed
+-- Learn Log-in DB – Schema & Seed
 -- Charset & Collation je nach Server ggf. anpassen
 CREATE DATABASE IF NOT EXISTS learn_login
   DEFAULT CHARACTER SET utf8mb4
@@ -12,7 +12,7 @@ CREATE TABLE users (
   email VARCHAR(100) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
   profile_image VARCHAR(255) DEFAULT NULL,
-  role ENUM('user','admin','moderator','block') DEFAULT 'user',
+  role VARCHAR(50) NOT NULL DEFAULT 'user',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )ENGINE=InnoDB;
