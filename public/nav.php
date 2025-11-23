@@ -11,6 +11,6 @@
         <nav class="container">
             <ul>
                     <li><a href="<?= $path ?>index.php">view all</a></li>
-                    <li><a href="<?= $path ?>categ-manager.php">create</a></li>
+                    <li><a href="<?= $path ?>users/create.php">create</a></li>
             </ul>
 </nav>
