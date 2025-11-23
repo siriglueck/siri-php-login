@@ -1,17 +1,13 @@
 <?php
-declare(strict_types=1);
-
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
 require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/../inc/functions.php';
 
-$stmt = $pdo->query("SELECT * FROM users");
-$users = $stmt->fetchAll();
+$users = getAllUsers($pdo);
+
 
 ?>
-<body>
-    <?php include_once 'nav.php' ?>
+
     <main class="container card">
          <table>
         <thead>
@@ -28,18 +24,14 @@ $users = $stmt->fetchAll();
         </thead>
           <?php foreach ($users as $u): ?>
             <tr>
-              <td><img src="..<?= ($u->profile_image)?>" class="icon" onerror="this.onerror=null; this.src='../uploads/user.png';" ></td>
+              <td><img src="..<?= ($u->profile_image)?>" class="icon" onerror="this.onerror=null; this.src='../uploads/nopic.svg';" ></td>
               <td><?= $u->id?></td>
               <td><?= $u->username ?></td>
               <td><?= $u->role?></td>
               <td><?= $u->created_at?></td>
               <td><?= $u->updated_at?></td>
-              <td><a href="edit.php?id=<?= (int)$u->id ?>" class="button">Bearbeiten</a></td>
-              <td><a href="edit.php?id=<?= (int)$u->id ?>" class="button text-danger">Löschen</a></td>
-                <!-- <form action="delete.php" style="display:inline;" method="post">
-                  <input type="hidden" name="id" value="<?= (int)$u->id ?>">
-                  <button type="submit" class="button text-danger">Löschen</button>
-                </form> -->
+              <td><a href="edit.php?id=<?= (int)$u->id ?>" class="button">Edit</a></td>
+              <td><a href="users/delete.php?id=<?= (int)$u->id ?>" class="button text-danger">Delete</a></td>
               
             </tr>
           <?php endforeach; ?>
